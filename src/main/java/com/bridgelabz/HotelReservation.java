@@ -3,6 +3,7 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class HotelReservation {
     List<Hotel> hotelDetails = new ArrayList<>();
@@ -27,9 +28,40 @@ public class HotelReservation {
         System.out.println("The cheapest Hotel Rate is " +cheapestHotel);
     }
 
+    public void getCheapestHotelForGivenDate() {
+        String hotel = null;
+        int totalLakeWoodRate = 0;
+        int totalBridgeWoodRate = 0;
+        int totalRidgeWoodRate = 0;
+
+        if (Objects.equals(hotel, "LakeWood")) {
+            int weekdayRate = 110;
+            int weekendRate = 90;
+            totalLakeWoodRate = (weekdayRate + weekendRate);
+        }
+        if (Objects.equals(hotel, "BridgeWood")) {
+            int weekdayRate = 150;
+            int weekendRate = 50;
+            totalBridgeWoodRate = (weekdayRate + weekendRate);
+        }
+        if (Objects.equals(hotel, "RidgeWood")) {
+            int weekdayRate = 220;
+            int weekendRate = 150;
+            totalRidgeWoodRate = (weekdayRate + weekendRate);
+        }
+        if (totalLakeWoodRate <= totalBridgeWoodRate && totalLakeWoodRate < totalRidgeWoodRate) {
+            System.out.println("LakeWood and BridgeWood with total rates $200.");
+        }
+        if (totalBridgeWoodRate <= totalLakeWoodRate && totalBridgeWoodRate < totalRidgeWoodRate) {
+            System.out.println("LakeWood and BridgeWood with total rates $200.");
+        }
+        if (totalRidgeWoodRate < totalLakeWoodRate && totalRidgeWoodRate < totalBridgeWoodRate) {
+            System.out.println("RidgeWood with total rates $370.");
+        }
+    }
+
     public void viewHotels() {
-        getMinPriceHotel();
-        getCheapestHotel();
+        getCheapestHotelForGivenDate();
     }
 }
 
