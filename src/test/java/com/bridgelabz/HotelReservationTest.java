@@ -17,8 +17,8 @@ public class HotelReservationTest {
     }
 
     @Test
-    public void toFindTheCheapestHotel() {
+    public void toFindBestRatingHotel() {
         HotelReservation hotelReservation = new HotelReservation();
-        hotelReservation.getCheapestHotelForGivenDate();
+        hotelReservation.getBestRatingsHotel();
     }
 }
